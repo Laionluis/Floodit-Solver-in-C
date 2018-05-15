@@ -1,0 +1,17 @@
+Como usar: dar make e:
+cat nome_arquivo_com_mapa | ./floodit_solver ou
+./floodit_solver < nome_arquivo_com_mapa
+
+Para a implementação do trabalho, usamos a biblioteca aprendida na disciplina de Teoria dos Grafos, a biblioteca cgraph.
+A estratégia consiste em colocar o mapa em um Grafo, ligando os vizinhos por arestas. Começamos pelo primeiro vertice da esquerda e chamamos ele de raíz - se algum vizinho
+do primeiro vertice for de mesma cor que ele, também é considerado raíz.
+
+Então o algoritmo visita as fronteiras da raiz e conta quantas cores de cada há nas fronteiras. Após isso o algoritmo guarda em um vetor as duas cores mais presentes nas fronteiras.
+E posteriormente simula um passo à frente para cada uma dessas duas cores selecionadas, fazendo o mesmo processo de visitar as fronteiras e ver qual é a cor mais 
+presente - nesse caso não pegamos as duas maiores cores, e sim a maior. 
+Tendo simulado dois passos para as duas maiores cores, o algoritmo compara o quanto de raíz é ganha com cada uma das duas cores e escolhe a maior.
+
+Notamos que quanto maior passos simulados o algoritmo fazia, menor era a eficiencia. E chegamos à um consenso de que simulando apenas um passo à frente tinhamos uma melhora
+na eficiencia e no número de passos executados no programa. 
+
+Quando o algoritmo detecta que a fronteira é zero, o programa resolveu o problema.
